@@ -15,39 +15,44 @@ public class CalcApp {
 			if ("quit".equals(expression) == true) {
 				break;
 			}
-			
+
 			String[] tokens = expression.split(" ");
 			int lvalue = Integer.parseInt(tokens[0]);
 			String operator = tokens[1];
 			int rvalue = Integer.parseInt(tokens[2]);
 
-			switch(operator) {
-			case "+" :
-			Add a = new Add();
-			a.setValue(lvalue, rvalue);
-			System.out.println(a.calculate);
-			break;
-			
-			case "-" :
-			Sub s = new Sub();
-			s.setValue(lvalue, rvalue);
-			System.out.println(s.calculate);
-			break;
-			
-			case "*" :
-			Mul m = new Mul();
-			m.setValue(lvalue, rvalue);
-			System.out.println(m.calculate);
-			break;
-			
-			case "/" :
-			Div d = new Div();
-			d.setValue(lvalue, rvalue);
-			System.out.println(d.calculate);
-			break;
+			switch (operator) {
+			case "+":{
+				Add a = new Add();
+				a.setValue(lvalue, rvalue);
+				System.out.println(">>" + a.calculate);
+				break;
+			}
+			case "-":{
+				Sub s = new Sub();
+				s.setValue(lvalue, rvalue);
+				System.out.println(">>" + s.calculate);
+				break;
+			}
+			case "*":{
+				Mul m = new Mul();
+				m.setValue(lvalue, rvalue);
+				System.out.println(">>" + m.calculate);
+				break;
+			}
+			case "/":{
+				Div d = new Div();
+				d.setValue(lvalue, rvalue);
+				System.out.println(">>" + d.calculate);
+				break;
+			}
+			default :	{
+				System.out.println(">>지원하지 않는 연산입니다!");
+				break;
 			}
 		}
-			scanner.close();
-		
+	}
+		scanner.close();
+
 	}
 }
