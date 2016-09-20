@@ -1,5 +1,5 @@
 
-package prob4;
+package ptob6;
 
 import java.util.Scanner;
 
@@ -22,36 +22,35 @@ public class CalcApp {
 			String operator = tokens[1];
 			int rvalue = Integer.parseInt(tokens[2]);
 
+			Arith arith = null;
 			switch (operator) {
 			case "+":{
-				Add a = new Add();
-				a.setValue(lvalue, rvalue);
-				System.out.println(">>" + a.calculate);
+				arith = new Add();
 				break;
 			}
 			case "-":{
-				Sub s = new Sub();
-				s.setValue(lvalue, rvalue);
-				System.out.println(">>" + s.calculate);
+				arith = new Sub();
 				break;
 			}
 			case "*":{
-				Mul m = new Mul();
-				m.setValue(lvalue, rvalue);
-				System.out.println(">>" + m.calculate);
+				arith = new Mul();
 				break;
 			}
 			case "/":{
-				Div d = new Div();
-				d.setValue(lvalue, rvalue);
-				System.out.println(">>" + d.calculate);
+				arith = new Div();
 				break;
 			}
 			default :	{
-				System.out.println(">>지원하지 않는 연산입니다!");
 				break;
 			}
 		}
+			if(arith == null){
+				System.out.println(">>알수없는 연산입니다");
+				continue;
+			}
+			arith.setValue(lvalue,rvalue);
+			int result = arith.calculate();
+			System.out.println(">>" + result);
 	}
 		scanner.close();
 
